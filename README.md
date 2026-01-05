@@ -36,10 +36,11 @@ Digunakan untuk penyimpanan data nasabah, data KTP, dan backup saldo.
 7. Penyimpanan dan pemuatan data dari file
 
 📂 Struktur File
-1. BankMini.cpp → Program utama
-2. DATA_H.txt → Stack dan simulasi kompresi data
-3. KTP_H.txt → Pengelolaan data KTP
-4. backUp_saldo.txt → Penyimpanan data dan backup saldo
+1. main.cpp → Semua kode utama
+2. BankMini.h → Header/definisi fungsi utama & menu
+3. DATA_H.txt → Stack dan simulasi kompresi data
+4. KTP_H.txt → Pengelolaan data KTP
+5. backUp_saldo.txt → Penyimpanan data dan backup saldo
 
 
 👨‍🎓 Kontributor
