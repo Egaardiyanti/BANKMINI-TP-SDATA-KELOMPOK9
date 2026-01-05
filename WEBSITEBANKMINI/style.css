@@ -1,0 +1,440 @@
+/* Reset & Base */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f8fbff; color: #333; line-height: 1.6; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.center { display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+.text-primary { color: #0066cc; }
+.text-center { text-align: center; }
+.py-5 { padding: 3rem 0; }
+.mb-3 { margin-bottom: 1rem; }
+.mb-4 { margin-bottom: 2rem; }
+.mb-5 { margin-bottom: 3rem; }
+.mt-4 { margin-top: 2rem; }
+.mt-5 { margin-top: 3rem; }
+.mr-2 { margin-right: 0.5rem; }
+.lead { font-size: 1.2rem; color: #555; margin: 1.5rem 0; }
+
+/* Cards */
+.card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+.landing-card { text-align: center; max-width: 600px; }
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.btn-primary { background: #0066cc; color: white; }
+.btn-primary:hover { background: #0052a3; }
+.btn-secondary { background: #6c757d; color: white; }
+.btn-secondary:hover { background: #545b62; }
+.btn-large { padding: 1rem 2rem; font-size: 1.1rem; }
+
+/* Grid & Flex */
+.role-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; }
+
+/* Role card font adjustments to match site font */
+.role-card, .role-card h3, .role-card p, .role-card a {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.role-card h3 { font-size: 1.6rem; margin-bottom: 8px; }
+.role-card p { font-size: 1rem; color: #444; }
+.role-card a { font-size: 1rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+
+/* Landing */
+.landing { background: linear-gradient(135deg, #0066cc, #66b0ff); color: white; }
+.landing h1 { font-size: 3rem; margin-bottom: 1rem; }
+.landing .lead { color: rgba(255,255,255,0.9); }
+
+/* Dashboard Layout */
+.dashboard { display: flex; min-height: 100vh; }
+
+/* Sidebar - Lega & Rapi */
+.sidebar {
+  width: 320px;
+  min-width: 320px;
+  background: #0066cc;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 8px 0 30px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-header {
+  padding: 30px 20px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.sidebar-header h3 { margin-top: 10px; font-size: 1.8rem; }
+.sidebar-header p { margin-top: 10px; font-size: 1rem; opacity: 0.9; }
+
+.sidebar-menu {
+  flex: 1;
+  padding: 20px 0;
+  list-style: none;
+}
+
+.sidebar-menu a {
+  display: flex;
+  align-items: center;
+  padding: 18px 30px;
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.sidebar-menu a i {
+  width: 30px;
+  font-size: 1.3rem;
+  margin-right: 15px;
+  text-align: center;
+}
+
+.sidebar-menu a:hover, .sidebar-menu a.active {
+  background: rgba(255,255,255,0.2);
+  padding-left: 40px;
+}
+
+.sidebar-footer {
+  padding: 20px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  text-align: center;
+}
+
+.sidebar-footer a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  padding: 12px 20px;
+  display: block;
+}
+
+/* CONTENT ADMIN - CENTER SEMPURNA, SPACE SIMETRIS */
+.content {
+  flex: 1;
+  padding: 60px 40px; /* Padding atas-bawah lebih besar, kiri-kanan kecil biar card lebih lebar */
+  background: #f8fbff;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center; /* Center horizontal */
+  align-items: flex-start; /* Mulai dari atas */
+}
+
+/* FEATURE CARD ADMIN - PERFECT CENTERED, LEBAR PAS */
+.feature-card {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 40px;
+  padding: 90px 120px; /* Lega banget */
+  width: 100%;
+  max-width: 1400px; /* Lebar maksimal lebih besar */
+  margin: 0 auto; /* <<< KEMBALI MARGIN AUTO BIAR CENTERED SEMPURNA */
+  box-shadow: 0 25px 60px rgba(0, 102, 204, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  transition: all 0.4s ease;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* Hapus batasan container */
+.container-center {
+  max-width: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Untuk konten sedikit (seperti Status Akun), center vertikal */
+.feature-card {
+  min-height: calc(100vh - 200px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.feature-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 35px 80px rgba(0, 102, 204, 0.22);
+}
+
+/* Judul */
+.feature-card h2 {
+  font-size: 3.2rem;
+  color: #0066cc;
+  font-weight: 800;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.feature-card h2::after {
+  content: '';
+  width: 150px;
+  height: 6px;
+  background: linear-gradient(90deg, #0066cc, #3388ff);
+  border-radius: 4px;
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Label & Input */
+.feature-card label {
+  display: block;
+  text-align: left;
+  margin: 40px 0 15px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.feature-card input, .feature-card select {
+  width: 100%;
+  padding: 22px 28px;
+  font-size: 1.3rem;
+  border-radius: 20px;
+  border: 2px solid #d0d8e0;
+  background: white;
+  transition: all 0.3s ease;
+}
+
+.feature-card input:focus, .feature-card select:focus {
+  outline: none;
+  border-color: #0066cc;
+  box-shadow: 0 0 0 6px rgba(0, 102, 204, 0.18);
+}
+
+/* Tombol */
+.feature-card button {
+  width: 100%;
+  padding: 25px;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(135deg, #0066cc, #3388ff);
+  border: none;
+  border-radius: 60px;
+  cursor: pointer;
+  margin-top: 50px;
+  box-shadow: 0 12px 35px rgba(0, 102, 204, 0.3);
+  transition: all 0.4s ease;
+}
+
+.feature-card button:hover {
+  background: linear-gradient(135deg, #0055aa, #2277ee);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px rgba(0, 102, 204, 0.4);
+}
+
+.feature-card .hint {
+  margin-top: 40px;
+  font-size: 1.15rem;
+  color: #666;
+}
+
+/* Tabel Daftar Nasabah - Admin */
+#nasabah-table {
+  width: 100%;
+  border-spacing: 0 20px;
+  margin-top: 40px;
+}
+
+#nasabah-table thead th {
+  text-align: left;
+  padding: 20px 30px;
+  font-size: 1.3rem;
+  color: #0066cc;
+  font-weight: 700;
+  border-bottom: 3px solid #0066cc;
+}
+
+#nasabah-table tbody tr {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 102, 204, 0.1);
+  transition: all 0.3s ease;
+}
+
+#nasabah-table tbody tr:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 102, 204, 0.15);
+}
+
+#nasabah-table tbody td {
+  padding: 30px;
+  font-size: 1.15rem;
+  vertical-align: middle;
+}
+
+#nasabah-table td:nth-child(3) {
+  font-weight: bold;
+  color: #0066cc;
+}
+
+#nasabah-table button {
+  background: linear-gradient(135deg, #ff4444, #ff6666);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(255, 68, 68, 0.2);
+}
+
+#nasabah-table button:hover {
+  background: linear-gradient(135deg, #cc0000, #ff3333);
+  transform: translateY(-2px);
+}
+
+/* Hasil Cari */
+#hasil-cari {
+  margin-top: 40px;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 102, 204, 0.08);
+  display: none;
+}
+
+#hasil-cari:not(:empty) { display: block; }
+
+#hasil-cari ul { list-style: none; text-align: left; margin-top: 20px; }
+#hasil-cari li {
+  padding: 15px;
+  background: #f0f7ff;
+  margin: 10px 0;
+  border-radius: 12px;
+  border-left: 4px solid #0066cc;
+}
+
+/* Laporan Total Admin */
+#laporan-total .feature-card { text-align: center; padding: 80px 60px; }
+#laporan-total p { font-size: 1.8rem; margin: 40px 0; }
+#laporan-total p strong { font-size: 3.5rem; color: #0066cc; display: block; margin-top: 15px; }
+
+/* Pastikan tampilan angka statistik seragam dengan laporan */
+#statistik-saldo .feature-card p {
+  font-size: 1.8rem;
+  margin: 25px 0;
+}
+#statistik-saldo .feature-card p span {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #0066cc;
+  margin-top: 8px;
+}
+
+/* Section Active */
+#main-content section { display: none; }
+#main-content section.active { display: block; }
+
+/* Highlight Menu Aktif */
+.sidebar-menu a.active {
+  background: rgba(255,255,255,0.25);
+  font-weight: bold;
+  border-left: 4px solid white;
+  padding-left: 40px;
+}
+
+/* Responsif */
+@media (max-width: 1200px) {
+  .sidebar { width: 300px; }
+  .content { padding: 40px 50px; }
+  .feature-card { padding: 70px 80px; max-width: 1000px; }
+}
+
+@media (max-width: 992px) {
+  .sidebar { width: 280px; }
+  .content { padding: 30px 40px; }
+  .feature-card { padding: 60px 60px; }
+}
+
+@media (max-width: 768px) {
+  .dashboard { flex-direction: column; }
+  .sidebar { width: 100%; height: auto; }
+  .content { padding: 20px; }
+  .feature-card { padding: 50px 30px; border-radius: 30px; }
+}
+
+/* =============== NASABAH - TETAP AMAN & TIDAK TERGANGGU =============== */
+body.dashboard.nasabah-mode {
+  background: linear-gradient(135deg, #e6f2ff, #f0f8ff);
+}
+
+.nasabah-mode .feature-card {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 44px;
+  padding: 100px 120px;
+  max-width: 1100px;
+  width: 95%;
+  margin: 60px auto;
+  box-shadow: 0 30px 80px rgba(0, 102, 204, 0.18);
+  border: 1px solid rgba(0, 153, 255, 0.2);
+}
+
+.nasabah-mode .feature-card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 40px 100px rgba(0, 102, 204, 0.25);
+}
+
+.nasabah-mode .feature-card h2 {
+  font-size: 3.5rem;
+  color: #0077dd;
+  margin-bottom: 70px;
+}
+
+.nasabah-mode .feature-card h2::after {
+  width: 180px;
+  height: 7px;
+  background: linear-gradient(90deg, #0077dd, #66bbff);
+  bottom: -30px;
+}
+
+.nasabah-mode .feature-card label {
+  font-size: 1.4rem;
+  margin: 45px 0 15px;
+}
+
+.nasabah-mode .feature-card input {
+  padding: 25px 30px;
+  font-size: 1.4rem;
+  border-radius: 24px;
+  border: 2px solid #c0e0ff;
+  background: #f8fbff;
+}
+
+.nasabah-mode .feature-card input:focus {
+  border-color: #0077dd;
+  box-shadow: 0 0 0 7px rgba(0, 119, 221, 0.2);
+}
+
+.nasabah-mode .feature-card button {
+  padding: 28px;
+  font-size: 1.8rem;
+  background: linear-gradient(135deg, #0077dd, #66bbff);
+  border-radius: 60px;
+  box-shadow: 0 15px 40px rgba(0, 119, 221, 0.3);
+  margin-top: 60px;
+}
+
+.nasabah-mode .feature-card button:hover {
+  background: linear-gradient(135deg, #0066cc, #55aaff);
+  transform: translateY(-6px);
+}

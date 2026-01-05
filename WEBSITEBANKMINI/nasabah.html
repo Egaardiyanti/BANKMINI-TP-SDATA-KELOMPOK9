@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEOVA Bank - Dashboard Nasabah</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="dashboard nasabah-dashboard">
+  <!-- Sidebar Nasabah -->
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <i class="fas fa-university text-primary"></i>
+      <h3>NEOVA Bank</h3>
+      <p id="status-nasabah">Status: Belum Login</p>
+    </div>
+
+    <!-- Menu sebelum login -->
+    <ul class="sidebar-menu" id="menu-sebelum-login">
+      <li><a href="#" onclick="showSectionNasabah('login-nasabah')"><i class="fas fa-sign-in-alt"></i> Login Nasabah</a></li>
+    </ul>
+
+    <!-- Menu setelah login -->
+    <ul class="sidebar-menu" id="menu-setelah-login" style="display: none;">
+      <li><a href="#" onclick="showSectionNasabah('cek-saldo')"><i class="fas fa-wallet"></i> Cek Saldo</a></li>
+      <li><a href="#" onclick="showSectionNasabah('setor-uang')"><i class="fas fa-plus-circle"></i> Setor Uang</a></li>
+      <li><a href="#" onclick="showSectionNasabah('tarik-uang')"><i class="fas fa-minus-circle"></i> Tarik Uang</a></li>
+      <li><a href="#" onclick="showSectionNasabah('transfer-uang')"><i class="fas fa-exchange-alt"></i> Transfer Uang</a></li>
+      <li><a href="#" onclick="showSectionNasabah('lihat-riwayat')"><i class="fas fa-history"></i> Riwayat Transaksi</a></li>
+      <li><a href="#" onclick="showSectionNasabah('cetak-struk')"><i class="fas fa-print"></i> Cetak Struk</a></li>
+      <li><a href="#" onclick="showSectionNasabah('cek-status-akun')"><i class="fas fa-id-card"></i> Status Akun</a></li>
+    </ul>
+
+    <div class="sidebar-footer">
+      <a href="role.html"><i class="fas fa-arrow-left"></i> Kembali ke Pilih Peran</a>
+    </div>
+
+    <div class="sidebar-footer" id="footer-logout" style="display: none;">
+      <a href="#" onclick="logoutNasabah()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="content">
+    <div class="container-center">
+      <div id="main-content">
+        <!-- Login Nasabah -->
+        <section id="login-nasabah" class="active">
+          <div class="card feature-card">
+            <h2>Login Nasabah</h2>
+            <label>Masukkan ID Nasabah:
+              <input type="text" id="nasabah-id-login" placeholder="Masukkan ID Nasabah">
+            </label>
+            <button type="button" onclick="loginNasabah()">Login</button>
+            <p class="hint">Masukkan ID Nasabah yang terdaftar.</p>
+          </div>
+        </section>
+
+        <!-- Cek Saldo -->
+        <section id="cek-saldo">
+          <div class="card feature-card">
+            <h2>Cek Saldo</h2>
+            <p>Selamat datang, <strong id="nama-nasabah"></strong>!</p>
+            <p>Saldo Anda: <strong id="saldo-nasabah">Rp 0</strong></p>
+          </div>
+        </section>
+
+        <!-- Setor Uang -->
+        <section id="setor-uang">
+          <div class="card feature-card">
+            <h2>Setor Uang</h2>
+            <label>Jumlah Setor:
+              <input type="number" id="jumlah-setor" placeholder="Masukkan jumlah">
+            </label>
+            <button onclick="setorUang()">Setor</button>
+          </div>
+        </section>
+
+        <!-- Tarik Uang -->
+        <section id="tarik-uang">
+          <div class="card feature-card">
+            <h2>Tarik Uang</h2>
+            <label>Jumlah Tarik:
+              <input type="number" id="jumlah-tarik" placeholder="Masukkan jumlah">
+            </label>
+            <button onclick="tarikUang()">Tarik</button>
+          </div>
+        </section>
+
+        <!-- Transfer Uang -->
+        <section id="transfer-uang">
+          <div class="card feature-card">
+            <h2>Transfer Uang</h2>
+            <label>NIK Tujuan:
+              <input type="text" id="tujuan-id" placeholder="Masukkan NIK Nasabah Tujuan">
+            </label>
+            <label>Jumlah Transfer:
+              <input type="number" id="jumlah-transfer" placeholder="Masukkan jumlah">
+            </label>
+            <button onclick="transferUang()">Transfer</button>
+          </div>
+        </section>
+
+        <!-- Riwayat Transaksi -->
+        <section id="lihat-riwayat">
+          <div class="card feature-card">
+            <h2>Riwayat Transaksi</h2>
+            <table id="riwayat-table">
+              <thead><tr><th>Tanggal</th><th>Jenis</th><th>Jumlah</th><th>Keterangan</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Cetak Struk -->
+        <section id="cetak-struk">
+          <div class="card feature-card">
+            <h2>Cetak Struk</h2>
+            <pre id="struk-terakhir">Belum ada transaksi.</pre>
+            <button onclick="cetakStruk()">Cetak Struk Terakhir</button>
+          </div>
+        </section>
+
+        <!-- Status Akun -->
+        <section id="cek-status-akun">
+          <div class="card feature-card">
+            <h2>Status Akun</h2>
+            <p>Status: <strong>Aktif</strong></p>
+            <p>ID: <span id="status-id"></span></p>
+            <p>Nama: <span id="status-nama"></span></p>
+            <p>Saldo: <span id="status-saldo"></span></p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
