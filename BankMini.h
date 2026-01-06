@@ -7,8 +7,11 @@
 #include <fstream>
 #include <ctime>
 
-#include "ktp.h"
-#include "data.h"
+#include "Stack.h"
+#include "Queue.h"
+#include "Tree.h"
+#include "DATA.h"
+#include "KTP.h"
 
 using namespace std;
 
