@@ -36,12 +36,14 @@ Digunakan untuk penyimpanan data nasabah, data KTP, dan backup saldo.
 7. Penyimpanan dan pemuatan data dari file
 
 📂 Struktur File
-1. main.cpp → Semua kode utama
-2. BankMini.h → Header/definisi fungsi utama & menu
-3. DATA_H.txt → Stack dan simulasi kompresi data
-4. KTP_H.txt → Pengelolaan data KTP
-5. backUp_saldo.txt → Penyimpanan data dan backup saldo
-
+1. main.cpp → fungsi main() untuk menjalankan program pertama kali dan menginisialisasi menu utama.
+2. BankMini.h → Berisi logika menu (Admin & Nasabah) serta fungsi-fungsi utama perbankan.
+3. Tree.h → Implementasi Binary Search Tree (BST) untuk menyimpan data rekening agar pencarian cepat.
+4. Queue.h → Implementasi antrian (bisa Array atau Linked List) untuk nasabah di teller/CS.
+5. Stack.h → Implementasi Stack untuk mencatat histori yang bisa dibatalkan (undo transaction).
+6. KTP.h & DATA.h → Definisi struct atau class untuk identitas nasabah dan data penunjang lainnya.
+7. Array.h → berisi fungsi bantuan untuk manipulasi array atau struktur data statis.
+8. txt Files → Database Sederhana. Tempat penyimpanan data permanen agar saat CMD ditutup, data tidak hilang.
 
 👨‍🎓 Kontributor
 Anggota :
