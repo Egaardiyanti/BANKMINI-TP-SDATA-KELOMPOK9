@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEOVA Bank - Dashboard Admin</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="dashboard">
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <i class="fas fa-university text-primary"></i>
+      <h3>NEOVA Bank</h3>
+      <p id="status-login">Status: Belum Login</p>
+    </div>
+
+    <!-- Menu sebelum login -->
+    <ul class="sidebar-menu" id="menu-sebelum-login">
+      <li><a href="#" onclick="showSection('login-admin')"><i class="fas fa-sign-in-alt"></i> Login Admin</a></li>
+    </ul>
+
+    <!-- Menu setelah login -->
+    <ul class="sidebar-menu" id="menu-setelah-login" style="display: none;">
+      <li><a href="#" onclick="showSection('daftar-nasabah')"><i class="fas fa-user-plus"></i> Daftar Nasabah Baru</a></li>
+      <li><a href="#" onclick="showSection('lihat-daftar-nasabah')"><i class="fas fa-users"></i> Lihat Daftar Nasabah</a></li>
+      <li><a href="#" onclick="showSection('hapus-nasabah')"><i class="fas fa-user-times"></i> Hapus Nasabah</a></li>
+      <li><a href="#" onclick="showSection('cari-nasabah')"><i class="fas fa-search"></i> Cari Nasabah</a></li>
+      <li><a href="#" onclick="showSection('laporan-total')"><i class="fas fa-chart-bar"></i> Laporan Total</a></li>
+      <li><a href="#" onclick="showSection('statistik-saldo')"><i class="fas fa-calculator"></i> Statistik Saldo</a></li>
+      <li><a href="#" onclick="showSection('backup-saldo')"><i class="fas fa-download"></i> Backup Data</a></li>
+      <li><a href="#" onclick="showSection('edit-nasabah')"><i class="fas fa-edit"></i> Edit Data Nasabah</a></li>
+      <li><a href="#" onclick="showSection('lihat-log')"><i class="fas fa-history"></i> Lihat Log Aktivitas</a></li>
+    </ul>
+
+    <div class="sidebar-footer">
+      <a href="role.html"><i class="fas fa-arrow-left"></i> Kembali ke Pilih Peran</a>
+    </div>
+
+    <div class="sidebar-footer" id="footer-logout" style="display: none;">
+      <a href="#" onclick="logoutAdmin()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="content">
+    <div class="container-center">
+      <div id="main-content">
+
+        <!-- Login Admin -->
+        <section id="login-admin" class="active">
+          <div class="card feature-card">
+            <h2>Login Admin</h2>
+            <form>
+              <label>Username: <input type="text" id="admin-username" placeholder="Masukkan Username" required></label>
+              <label>Password: <input type="password" id="admin-password" placeholder="Masukkan Password" required></label>
+              <button type="button" onclick="loginAdmin()">Login</button>
+            </form>
+            <p class="hint">Hint: admin / 12345</p>
+          </div>
+        </section>
+
+        <!-- Admin Menus -->
+        <section id="daftar-nasabah">
+          <div class="card feature-card">
+            <h2>Daftar Nasabah Baru (Admin)</h2>
+            <label>Nama Nasabah: <input type="text" id="new-nama" placeholder="Nama Nasabah"></label>
+            <label>Saldo Awal: <input type="number" id="new-saldo" placeholder="Saldo Awal" value="0"></label>
+            <button onclick="tambahNasabah()">Daftar Nasabah</button>
+          </div>
+        </section>
+
+        <section id="lihat-daftar-nasabah">
+          <div class="card feature-card">
+            <h2>Lihat Daftar Nasabah</h2>
+            <table id="nasabah-table">
+              <thead><tr><th>ID</th><th>Nama</th><th>Saldo</th></tr></thead>
+              <tbody></tbody>
+            </table>
+            <div id="pagination" style="margin-top:20px; display:flex; justify-content:center; gap:8px; flex-wrap:wrap;"></div>
+          </div>
+        </section>
+
+        <section id="hapus-nasabah">
+          <div class="card feature-card">
+            <h2>Hapus Nasabah</h2>
+            <input type="number" id="hapus-id" placeholder="Masukkan ID Nasabah">
+            <button onclick="hapusNasabah()">Hapus</button>
+          </div>
+        </section>
+
+        <section id="cari-nasabah">
+          <div class="card feature-card">
+            <h2>Cari Nasabah</h2>
+            <input type="text" id="cari-nama" placeholder="Masukkan Nama Nasabah">
+            <button onclick="cariNasabah()">Cari</button>
+            <div id="hasil-cari"></div>
+          </div>
+        </section>
+
+        <section id="laporan-total">
+          <div class="card feature-card">
+            <h2>Laporan Total Nasabah</h2>
+            <p>Total Nasabah: <span id="total-nasabah">0</span></p>
+            <p>Total Saldo Semua Nasabah: <span id="total-saldo">0</span></p>
+          </div>
+        </section>
+
+        <section id="statistik-saldo">
+          <div class="card feature-card">
+            <h2>Statistik Saldo Nasabah</h2>
+            <p>Saldo Tertinggi: <span id="saldo-max">0</span></p>
+            <p>Saldo Terendah: <span id="saldo-min">0</span></p>
+            <p>Rata-rata Saldo: <span id="saldo-rata">0</span></p>
+          </div>
+        </section>
+
+        <section id="backup-saldo">
+          <div class="card feature-card">
+            <h2>Backup Data Nasabah</h2>
+            <button onclick="backupData()">Download Backup (JSON)</button>
+            <p id="backup-status"></p>
+          </div>
+        </section>
+
+        <section id="edit-nasabah">
+          <div class="card feature-card">
+            <h2>1.8P Edit Data Nasabah</h2>
+            <input type="number" id="edit-id" placeholder="ID Nasabah">
+            <input type="text" id="edit-nama" placeholder="Nama Baru">
+            <input type="number" id="edit-saldo" placeholder="Saldo Baru">
+            <button onclick="editNasabah()">Update</button>
+          </div>
+        </section>
+
+        <section id="lihat-log">
+          <div class="card feature-card">
+            <h2>Lihat Log Aktivitas</h2>
+            <table id="log-table">
+              <thead><tr><th>Waktu</th><th>Aktivitas</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
